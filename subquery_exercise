@@ -1,0 +1,18 @@
+create table dupes (id integer, name varchar);
+
+insert into dupes values ('1', 'frank');
+insert into dupes values ('2', 'frank');
+insert into dupes values ('3', 'frank');
+insert into dupes values ('4', 'robert');
+insert into dupes values ('5', 'robert');
+insert into dupes values ('6', 'sam');
+insert into dupes values ('7', 'peter');
+select * from dupes;
+
+select min(id), name, count(*) from dupes
+group by name;
+
+Select round(avg(salary)) from employees where salary NOT IN (
+(Select min (salary) from employees), (select max (salary) from employees) )
+
+Select round(avg(salary)) from employees

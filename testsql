@@ -1,0 +1,16 @@
+select *
+from employees
+where salary > 100000
+AND (department = 'Sports' OR department = 'Books')
+ORDER BY hire_date ASC;
+SELECT *
+FROM employees
+WHERE NOT department = 'Sports';
+SELECT *
+FROM employees
+where email is null;
+SELECT *
+FROM employees
+where department in('Clothing','Sports','Furniture')
+AND salary between 40000 and 60000
+order by salary ASC;

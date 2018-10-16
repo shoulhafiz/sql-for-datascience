@@ -1,0 +1,15 @@
+Select department, count (*)
+from employees
+where department IN ('Sports','Tools','Clothing','Computers')
+group by department
+
+Select sum(Case when department = 'Sports' then 1 else 0 end) Total_Sports,
+sum(Case when department = 'Tools' then 1 else 0 end) Total_Tools,
+sum(Case when department = 'Clothing' then 1 else 0 end) Total_Clothing,
+sum(Case when department = 'Computers' then 1 else 0 end) Total_Computers
+from employees
+
+select * from regions
+Select First_name,
+CASE when region_id = 1 Then (select region from regions where region_id = 1) END
+From employees

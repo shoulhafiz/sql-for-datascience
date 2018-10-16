@@ -1,0 +1,29 @@
+select country, round(avg(salary)) avg_salary from
+(select division, country, sum(salary) salary
+from employees left join regions
+on employees.region_id = regions.region_id
+inner join departments on employees.department = departments.department
+group by division, country
+order by country) a
+group by country
+order by avg_salary
+
+Select region, count (*) Total_employee  from employees
+inner join regions
+on employees.region_id = regions.region_id
+group by region
+UNION ALL
+SELECT 'TOTAL', count (*) from employees
+						  
+						  
+Select distinct employees.department emp_dept, departments.department depts_dept
+from employees left join departments on employees.department = departments.department
+where departments.department is null 
+
+Select distinct employees.department emp_dept, departments.department depts_dept
+from employees full outer join departments on employees.department = departments.department
+
+Select department, count (*) from employees
+group by department
+UNION ALL
+select 'TOTAL', count(*) from employees

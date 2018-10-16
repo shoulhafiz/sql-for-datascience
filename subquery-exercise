@@ -1,0 +1,18 @@
+select *
+FROM employees
+where department IN (select department from departments where division = 'Electronics')
+order by department
+
+select * 
+from employees
+where salary > 130000 and region_id IN (select region_id from regions where country = 'Asia' or country = 'Canada')
+order by region
+
+select region from regions where country = 'Asia' or country = 'Canada'
+
+select first_name, department, (select max(salary) from employees) - salary
+from employees
+Where region_id IN (select region_id from regions where country in ('Asia','Canada'))
+											 
+select max(salary) from employees
+											 

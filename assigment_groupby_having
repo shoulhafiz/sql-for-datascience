@@ -1,0 +1,60 @@
+select state, sum (supply) total_supply from fruit_imports
+group by state
+Order by total_supply desc
+limit 1
+
+select season, sum(cost_per_unit) cost_per_unit from fruit_imports
+group by season
+Order by cost_per_unit desc
+
+
+select state,name, count(name) from fruit_imports
+group by state,name
+having count(name) > 1
+
+select season, count (*) from fruit_imports
+group by season
+having count (*) > 2
+
+select state, sum ((supply)*(cost_per_unit)) total from fruit_imports
+group by state
+Order by total desc
+limit 1
+
+CREATE table fruits (fruit_name varchar(10));
+INSERT INTO fruits VALUES ('Orange');
+INSERT INTO fruits VALUES ('Apple');
+INSERT INTO fruits VALUES (NULL);
+INSERT INTO fruits VALUES (NULL);
+										
+select count(*) from fruits
+										
+select state, count(name)
+from fruit_imports
+group by state
+having count(name) > 1
+order by state
+										
+select state, round(sum((supply)* (cost_per_unit)) ) total
+from fruit_imports
+group by state
+order by total desc
+limit 1
+										
+select count(coalesce(fruit_name, 'no data')) from fruits 
+					  
+select coalesce(fruit_name, 'no data') from fruits 
+SELECT season, MAX(cost_per_unit) highest_cost_per_unit
+FROM fruit_imports
+GROUP BY season
+					  
+SELECT state
+FROM fruit_imports
+GROUP BY state, name
+HAVING COUNT(name) > 1
+
+SELECT state, SUM(supply * cost_per_unit) total_cost
+FROM fruit_imports
+GROUP BY state
+ORDER BY total_cost desc
+LIMIT 1

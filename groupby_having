@@ -1,0 +1,29 @@
+select * from employees
+
+select department, sum (salary) salary_total, count (employee_id) number_of_employee,
+round (avg (salary)) average_salary, gender
+from employees
+group by department, gender
+having count (employee_id) > 20
+Order by department Desc
+
+Select first_name, count(first_name)
+from employees
+group by first_name
+having count(first_name) > 2
+
+select department
+from employees
+group by department
+			
+SELECT SUBSTRING (email, POSITION ('@' IN email)+1) Email_Domain, count(*) total_employee
+FROM employees
+group by email_domain
+order by total_employee desc
+			
+select gender, region_id, min(salary) min_salary, max(salary) max_salary, round(avg(salary)) average_salary
+from employees
+group by gender, region_id
+order by gender, region_id
+
+																				

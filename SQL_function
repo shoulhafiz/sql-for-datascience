@@ -1,0 +1,13 @@
+-- SQL function
+SELECT UPPER(first_name)
+from employees
+
+SELECT first_name || ' ' || last_name "Full name", (salary > 140000) "Is higly paid", salary
+from employees
+ORDER BY salary DESC
+
+SELECT department, REPLACE (department, 'Clothing', 'Attire') "Modified_data", department || ' Department' "Full Dept"
+FROM departments
+
+SELECT email, SUBSTRING (email, POSITION ('@' IN email)+1) "Domain"
+FROM employees

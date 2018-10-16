@@ -1,0 +1,12 @@
+SELECT *
+FROM v_first_ins
+WHERE personalnr = '10011569'
+ORDER BY first_in DESC
+
+SELECT *
+FROM v_first_ins_last_outs
+LIMIT 10
+
+SELECT * from mv_tag_data
+where personalnr = '10011569'
+ORDER BY daydate DESC
